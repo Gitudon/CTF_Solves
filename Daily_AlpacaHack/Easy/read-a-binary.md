@@ -1,0 +1,121 @@
+バイナリ解析ツールでバイナリを解析すると、`main`関数に以下のコードが含まれていることがわかります。
+
+```c
+bool main(void)
+{
+  bool bVar1;
+  char local_d8 [96];
+  char local_78 [96];
+  long local_18;
+  int local_c;
+  printf("Input > ");
+  FUN_00401080(&DAT_0040200d,local_78);
+  local_d8[0] = 'A';
+  local_d8[1] = 0x6c;
+  local_d8[2] = 0x70;
+  local_d8[3] = 0x61;
+  local_d8[4] = 99;
+  local_d8[5] = 0x61;
+  local_d8[6] = 0x7b;
+  local_d8[7] = 0x44;
+  local_d8[8] = 0x65;
+  local_d8[9] = 99;
+  local_d8[10] = 0x6f;
+  local_d8[0xb] = 0x6d;
+  local_d8[0xc] = 0x70;
+  local_d8[0xd] = 0x69;
+  local_d8[0xe] = 0x65;
+  local_d8[0xf] = 0x72;
+  local_d8[0x10] = 0x73;
+  local_d8[0x11] = 0x5f;
+  local_d8[0x12] = 99;
+  local_d8[0x13] = 0x61;
+  local_d8[0x14] = 0x6e;
+  local_d8[0x15] = 0x5f;
+  local_d8[0x16] = 0x6f;
+  local_d8[0x17] = 0x70;
+  local_d8[0x18] = 0x74;
+  local_d8[0x19] = 0x69;
+  local_d8[0x1a] = 0x6d;
+  local_d8[0x1b] = 0x69;
+  local_d8[0x1c] = 0x7a;
+  local_d8[0x1d] = 0x65;
+  local_d8[0x1e] = 0x5f;
+  local_d8[0x1f] = 0x72;
+  local_d8[0x20] = 0x65;
+  local_d8[0x21] = 100;
+  local_d8[0x22] = 0x75;
+  local_d8[0x23] = 0x6e;
+  local_d8[0x24] = 100;
+  local_d8[0x25] = 0x61;
+  local_d8[0x26] = 0x6e;
+  local_d8[0x27] = 0x74;
+  local_d8[0x28] = 0x5f;
+  local_d8[0x29] = 0x61;
+  local_d8[0x2a] = 0x73;
+  local_d8[0x2b] = 0x73;
+  local_d8[0x2c] = 0x65;
+  local_d8[0x2d] = 0x6d;
+  local_d8[0x2e] = 0x62;
+  local_d8[0x2f] = 0x6c;
+  local_d8[0x30] = 0x79;
+  local_d8[0x31] = 0x5f;
+  local_d8[0x32] = 99;
+  local_d8[0x33] = 0x6f;
+  local_d8[0x34] = 100;
+  local_d8[0x35] = 0x65;
+  local_d8[0x36] = 0x73;
+  local_d8[0x37] = 0x5f;
+  local_d8[0x38] = 0x74;
+  local_d8[0x39] = 0x6f;
+  local_d8[0x3a] = 0x5f;
+  local_d8[0x3b] = 0x65;
+  local_d8[0x3c] = 0x6c;
+  local_d8[0x3d] = 0x65;
+  local_d8[0x3e] = 0x67;
+  local_d8[0x3f] = 0x61;
+  local_d8[0x40] = 0x6e;
+  local_d8[0x41] = 0x74;
+  local_d8[0x42] = 0x5f;
+  local_d8[0x43] = 0x70;
+  local_d8[0x44] = 0x73;
+  local_d8[0x45] = 0x65;
+  local_d8[0x46] = 0x75;
+  local_d8[0x47] = 100;
+  local_d8[0x48] = 0x6f;
+  local_d8[0x49] = 0x5f;
+  local_d8[0x4a] = 99;
+  local_d8[0x4b] = 0x6f;
+  local_d8[0x4c] = 100;
+  local_d8[0x4d] = 0x65;
+  local_d8[0x4e] = 0x73;
+  local_d8[0x4f] = 0x7d;
+  local_d8[0x50] = 0;
+  local_c = 0;
+  local_18 = 0;
+  do {
+    if (0x50 < local_18) {
+LAB_00401431:
+      bVar1 = local_c != 0;
+      if (bVar1) {
+        puts("Incorrect...");
+      }
+      else {
+        printf("Correct! The flag is %s\n",local_78);
+      }
+      return bVar1;
+    }
+    if (local_78[local_18] != local_d8[local_18]) {
+      local_c = 1;
+      goto LAB_00401431;
+    }
+    local_18 = local_18 + 1;
+  } while( true );
+}
+```
+
+`local_d8`配列にはフラグの各文字がASCIIコードで格納されているので、これを変換すれば元のフラグがわかります。
+
+```
+Alpaca{Decompiers_can_optimize_redundant_assembly_codes_to_elegant_pseudo_codes}
+```
