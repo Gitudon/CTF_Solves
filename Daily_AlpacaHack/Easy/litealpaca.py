@@ -1,0 +1,8 @@
+import base64
+
+# from litealpaca_init.pth
+print(
+    base64.b64decode(
+        "aW1wb3J0IG9zOyBvcy5zeXN0ZW0oImVjaG8gJ0FscGFjYXtQeVBJX3A0Y2s0ZzNzX2M0bl9iM19kNG5nM3IwdXN9JyA+IC90bXAvZmxhZy50eHQiKQ=="
+    )
+)
