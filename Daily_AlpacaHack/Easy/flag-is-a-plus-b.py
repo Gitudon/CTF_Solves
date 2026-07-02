@@ -1,0 +1,9 @@
+from Crypto.Util.number import bytes_to_long, long_to_bytes
+
+AorB = 1708520672692343497693425015709016883325158039728511260268583494549501
+AxorB = 1653224853895272618878301831150773792186632776885840473347068872416893
+AandB = AorB - AxorB
+
+AplusB = AxorB + (AandB << 1)
+
+print(long_to_bytes(AplusB).decode())
