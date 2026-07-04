@@ -6,7 +6,7 @@ BASE_URL = "http://34.170.146.252:14016/"
 
 CHARS = string.ascii_letters + string.digits + "_" + "}"
 
-
+# かなり時間がかかるので注意
 current_flag = "Alpaca{"
 path_parts = list(current_flag)
 session = requests.Session()
